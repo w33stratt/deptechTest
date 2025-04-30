@@ -1,0 +1,49 @@
+<div class="container mx-auto p-6">
+    <!-- Header dan Tombol Ajukan Cuti -->
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold text-gray-700">Daftar Cuti Pegawai</h2>
+
+        <!-- Tombol Ajukan Cuti dan Back -->
+        <div class="flex space-x-4">
+            <a [routerLink]="['/pegawai', employeeId, 'cuti', 'create']"
+                class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                + Ajukan Cuti
+            </a>
+
+            <!-- Tombol Kembali -->
+            <a (click)="back()" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
+                Kembali
+            </a>
+        </div>
+    </div>
+
+    <!-- Tabel Daftar Cuti -->
+    <table class="min-w-full table-auto bg-white border-collapse border border-gray-200">
+        <thead>
+            <tr class="bg-gray-100">
+                <th class="px-4 py-2 text-left">Alasan</th>
+                <th class="px-4 py-2 text-left">Tanggal Mulai</th>
+                <th class="px-4 py-2 text-left">Tanggal Selesai</th>
+                <th class="px-4 py-2 text-left">Actions</th> <!-- Kolom untuk aksi Edit dan Delete -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cuti of cutiList" class="border-b">
+                <td class="px-4 py-2">{{ cuti.reason }}</td>
+                <td class="px-4 py-2">{{ cuti.startDate }}</td>
+                <td class="px-4 py-2">{{ cuti.endDate }}</td>
+                <td class="px-4 py-2">
+                    <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                        [routerLink]="['/pegawai', employeeId, 'cuti', cuti.id, 'edit']">
+                        Edit
+                    </button>
+
+                    <button (click)="onDeleteCuti(cuti.id)"
+                        class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 ml-2">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

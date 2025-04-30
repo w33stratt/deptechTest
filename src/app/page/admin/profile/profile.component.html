@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="max-w-xl mx-auto p-6">
+    <h2 class="text-xl font-bold mb-4">Edit Profil Admin</h2>
+    <form [formGroup]="profileForm" (ngSubmit)="save()" class="space-y-4">
+        <input type="text" formControlName="firstName" placeholder="Nama Depan" class="form-input w-full" />
+        <input type="text" formControlName="lastName" placeholder="Nama Belakang" class="form-input w-full" />
+        <input type="email" formControlName="email" placeholder="Email" class="form-input w-full" />
+        <input type="date" formControlName="birthDate" class="form-input w-full" />
+        <select formControlName="gender" class="form-select w-full">
+            <option value="Laki-laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
+        </select>
+        <input type="text" formControlName="password" placeholder="Password" class="form-input w-full" />
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Simpan Perubahan</button>
+    </form>
+</div>

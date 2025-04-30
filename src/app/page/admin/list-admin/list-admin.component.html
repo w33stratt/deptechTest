@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+
+<div class="container mx-auto p-6">
+    <!-- Create Admin Button -->
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold text-gray-700">Admin List</h2>
+        <button (click)="goToCreateAdmin()" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+            Create New Admin
+        </button>
+    </div>
+
+    <table class="min-w-full table-auto bg-white border-collapse border border-gray-200">
+        <thead>
+            <tr class="bg-gray-100">
+                <th class="px-4 py-2 text-left">First Name</th>
+                <th class="px-4 py-2 text-left">Last Name</th>
+                <th class="px-4 py-2 text-left">Email</th>
+                <th class="px-4 py-2 text-left">Birth Date</th>
+                <th class="px-4 py-2 text-left">Gender</th>
+                <th class="px-4 py-2 text-left">Password</th>
+                <th class="px-4 py-2 text-left">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let admin of admins$ | async" class="border-b">
+                <td class="px-4 py-2">{{ admin.firstName }}</td>
+                <td class="px-4 py-2">{{ admin.lastName }}</td>
+                <td class="px-4 py-2">{{ admin.email }}</td>
+                <td class="px-4 py-2">{{ admin.birthDate | date: 'dd/MM/yyyy' }}</td> <!-- Format tanggal -->
+                <td class="px-4 py-2">{{ admin.gender }}</td>
+                <td class="px-4 py-2">
+                    <!-- Password ditampilkan dengan tanda bintang -->
+                    {{ maskPassword(admin.password) }}
+                </td>
+                <td class="px-4 py-2">
+                    <!-- Edit Button -->
+                    <button (click)="goToEditAdmin(admin.id)"
+                        class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                        Edit
+                    </button>
+
+                    <!-- Delete Button -->
+                    <button (click)="onDeleteAdmin(admin.id)"
+                        class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 ml-2">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

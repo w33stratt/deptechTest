@@ -1,0 +1,42 @@
+{
+  "admins": [
+    {
+      "firstName": "Budi edit pegawai",
+      "lastName": "Santoso edit",
+      "email": "admin@example.com",
+      "birthDate": "1990-01-01",
+      "gender": "Perempuan",
+      "password": "password123sss",
+      "id": "1"
+    },
+    {
+      "id": "6263",
+      "firstName": "sss",
+      "lastName": "ssss",
+      "email": "adssmin@example.com",
+      "birthDate": "2025-04-16",
+      "gender": "Perempuan",
+      "password": "password123sss"
+    }
+  ],
+  "pegawai": [
+    {
+      "id": "5606",
+      "firstName": "dsds",
+      "lastName": "dsdsd",
+      "email": "admin@exampwwwle.com",
+      "phoneNumber": 8512211212311,
+      "address": "ciawiddsdsdssssssss",
+      "gender": "Laki-laki"
+    }
+  ],
+  "cuti": [
+    {
+      "id": "e703",
+      "employeeId": "5606",
+      "reason": "dsdsdsdsd",
+      "startDate": "2025-04-30",
+      "endDate": "2025-04-30"
+    }
+  ]
+}
